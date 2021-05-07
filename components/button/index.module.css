@@ -1,0 +1,11 @@
+.button {
+    @apply text-white p-1 border-2 border-main rounded transition
+}
+
+.button:hover, .button:active, .active {
+    @apply bg-main text-white
+}
+
+.button:disabled {
+    @apply opacity-30 border-transparent bg-base
+}

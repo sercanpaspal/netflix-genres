@@ -1,0 +1,11 @@
+.item {
+    @apply h-24 
+}
+
+.link {
+    @apply relative transform transition block h-full bg-white text-base text-center rounded p-3 items-center flex justify-center
+}
+
+.link:hover {
+    @apply scale-110 shadow-md z-10
+}

@@ -1,0 +1,7 @@
+.title {
+    @apply text-lg font-semibold mt-3 mb-1
+}
+
+.list {
+    @apply grid xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-1
+}

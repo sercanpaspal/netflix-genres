@@ -1,0 +1,7 @@
+.title {
+    @apply text-lg font-semibold mb-1
+}
+
+.list {
+    @apply flex flex-wrap
+}
