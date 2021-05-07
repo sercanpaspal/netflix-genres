@@ -1,4 +1,4 @@
-## About
+## About  [Let's Try](https://netflix-genres.vercel.app/)
 
 Find Netflix genres by tag. Only Turkish for now.
 
