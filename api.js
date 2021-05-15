@@ -6,7 +6,7 @@ const tags = require("./tags.json").map((tag) => ({
 export const tagsFilterByGenres = (genres) =>
   tags.map((tag) => {
     for (let i = 0; i < genres.length; i++) {
-      if (genres[i].name.includes(tag.name)) {
+      if (genres[i].name.toLowerCase().includes(tag.name.toLowerCase())) {
         return { ...tag, disabled: false };
       }
     }
@@ -17,7 +17,7 @@ export const tagsFilterByGenres = (genres) =>
 export const genresFilterBySelectedTags = (genres, selectedTags) =>
   genres.filter((genre) => {
     for (let i = 0; i < selectedTags.length; i++) {
-      if (!genre.name.includes(selectedTags[i])) {
+      if (!genre.name.toLowerCase().includes(selectedTags[i].toLowerCase())) {
         return false;
       }
     }
