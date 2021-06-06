@@ -1,9 +1,20 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-const usePagination = (all = [], size = 24) => {
-  const [page, setPage] = useState(1);
+const useLoadItems = (all = [], size = 24) => {
+  const [loading, setLoading] = useState(false);
+  const [items, setItems] = useState([]);
+  const [pageIndex, setPageIndex] = useState(1);
+  const [hasNextPage, setHasNextPage] = useState(true);
 
-  return [all.slice(0, page * size), page, setPage, page * size < all.length];
-};
+  function loadMore() {
+    setLoading(true);
+    setItems(all.slice(0, pageIndex * size));
+    setPageIndex(pageIndex + 1);
+    setHasNextPage(pageIndex * size < all.length);
+    setLoading(false);
+  }
 
-export { usePagination };
+  return { loading, items, hasNextPage, loadMore };
+}
+
+export { useLoadItems };
