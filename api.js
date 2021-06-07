@@ -1,20 +1,26 @@
-const tags = require("./tags.json").map((tag) => ({
-  name: tag,
-  disabled: false,
-}));
+const tags = {
+  tr: require("./locales/tr/tags.json"),
+  en: require("./locales/en/tags.json"),
+};
 
-export const tagsFilterByGenres = (genres) =>
-  tags.map((tag) => {
-    for (let i = 0; i < genres.length; i++) {
-      if (genres[i].name.toLowerCase().includes(tag.name.toLowerCase())) {
-        return { ...tag, disabled: false };
+export const filterTagsByGenresAndLocale = (genres, locale) => {
+  return tags[locale]
+    .map((tag) => ({
+      name: tag,
+      disabled: false,
+    }))
+    .map((tag) => {
+      for (let i = 0; i < genres.length; i++) {
+        if (genres[i].name.toLowerCase().includes(tag.name.toLowerCase())) {
+          return { ...tag, disabled: false };
+        }
       }
-    }
 
-    return { ...tag, disabled: true };
-  });
+      return { ...tag, disabled: true };
+    });
+};
 
-export const genresFilterBySelectedTags = (genres, selectedTags) =>
+export const filterGenresBySelectedTags = (genres, selectedTags) =>
   genres.filter((genre) => {
     for (let i = 0; i < selectedTags.length; i++) {
       if (!genre.name.toLowerCase().includes(selectedTags[i].toLowerCase())) {
@@ -24,3 +30,9 @@ export const genresFilterBySelectedTags = (genres, selectedTags) =>
 
     return true;
   });
+
+export const getGenresByLocale = async (locale) => {
+  return await fetch(
+    "https://raw.githubusercontent.com/f/netflix-data/main/genres.tr.json"
+  ).then((res) => res.json());
+};
