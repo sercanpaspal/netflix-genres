@@ -2,6 +2,10 @@
     @apply container mx-auto px-4
 }
 
+.header {
+    @apply flex items-center
+}
+
 .title {
-    @apply text-4xl font-extrabold text-white my-4
+    @apply text-4xl font-extrabold text-white my-4 mr-4
 }
