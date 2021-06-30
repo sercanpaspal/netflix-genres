@@ -32,7 +32,21 @@ export const filterGenresBySelectedTags = (genres, selectedTags) =>
   });
 
 export const getGenresByLocale = async (locale) => {
-  return await fetch(
-    "https://raw.githubusercontent.com/f/netflix-data/main/genres.tr.json"
-  ).then((res) => res.json());
+  switch (locale) {
+    case "tr":
+      return await fetch(
+        "https://raw.githubusercontent.com/f/netflix-data/main/genres.tr.json"
+      ).then((res) => res.json());
+    case "en":
+      const genres = await fetch(
+        "https://raw.githubusercontent.com/eliask/netflix-genres/master/genres.json"
+      ).then((res) => res.json());
+
+      return Object.entries(genres).map((genre) => ({
+        name: genre[1],
+        url: "https://netflix.com/browse/genre/" + genre[0],
+      }));
+    default:
+      return [];
+  }
 };
