@@ -1,0 +1,15 @@
+.content {
+    @apply relative inline-block;
+}
+
+.button {
+    @apply border border-black bg-main px-4 py-2 text-sm font-medium text-white bg-black rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none;
+}
+
+.items {
+    @apply z-10 absolute right-0 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none;
+}
+
+.itemsInner {
+    @apply p-1;
+}

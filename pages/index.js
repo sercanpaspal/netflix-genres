@@ -1,29 +1,30 @@
-import { genresFilterBySelectedTags, tagsFilterByGenres } from "../api";
+import {
+  filterGenresBySelectedTags,
+  filterTagsByGenresAndLocale,
+  getGenresByLocale,
+} from "../api";
 import GenreList from "../components/genre-list";
 import Layout from "../components/layout";
 import TagList from "../components/tag-list";
 import { useStore } from "../store";
 
-const Home = ({ genres }) => {
+const Home = ({ genres, locale }) => {
   const [{ selectedTags }] = useStore();
 
-  const filteredGenres = genresFilterBySelectedTags(genres, selectedTags);
+  const filteredGenres = filterGenresBySelectedTags(genres, selectedTags);
 
   return (
     <Layout>
-      <TagList tags={tagsFilterByGenres(filteredGenres)} />
+      <TagList tags={filterTagsByGenresAndLocale(filteredGenres, locale)} />
       <GenreList genres={filteredGenres} />
     </Layout>
   );
 };
 
-export async function getStaticProps() {
-  const res = await fetch(
-    "https://raw.githubusercontent.com/f/netflix-data/main/genres.tr.json"
-  );
-  const genres = await res.json();
+export async function getStaticProps({ locale }) {
+  const genres = await getGenresByLocale(locale);
 
-  return { props: { genres } };
+  return { props: { genres, locale } };
 }
 
 export default Home;
