@@ -11,7 +11,7 @@ English data from [https://github.com/eliask/netflix-genres](https://github.com/
 - [ ] More tag
 - [x] English support
 - [ ] UI/UX improvements
-- [ ] Infinity scroll
+- [x] Infinity scroll
 - [ ] Color mode
 
 ## Contribute
