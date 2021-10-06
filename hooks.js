@@ -25,7 +25,7 @@ export const useObserver = (
       observer.observe(ref.current);
     }
     return () => observer.disconnect();
-  }, []);
+  }, [ref.current]);
 
   return ref;
 };
