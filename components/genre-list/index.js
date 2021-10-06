@@ -1,6 +1,6 @@
 import useTranslation from "next-translate/useTranslation";
 import { useEffect } from "react";
-import { usePagination } from "../../hooks";
+import { usePagination, useObserver } from "../../hooks";
 import Button from "../button";
 import GenreListItem from "../genre-list-item";
 import styles from "./index.module.css";
@@ -8,6 +8,9 @@ import styles from "./index.module.css";
 const GenreList = ({ genres }) => {
   const { t } = useTranslation("common");
   const [data, page, setPage, hasMore] = usePagination(genres);
+  const loaderRef = useObserver(
+    (isIntersecting) => isIntersecting && setPage((p) => p + 1)
+  );
 
   useEffect(() => {
     setPage(1);
@@ -25,7 +28,9 @@ const GenreList = ({ genres }) => {
       </ul>
       <div className="text-center p-5">
         {hasMore && (
-          <Button onClick={() => setPage(page + 1)}>{t("load_more")}</Button>
+          <Button ref={loaderRef} onClick={() => setPage(page + 1)}>
+            {t("load_more")}
+          </Button>
         )}
       </div>
     </div>
