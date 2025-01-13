@@ -7,5 +7,14 @@
 }
 
 .title {
-    @apply text-4xl font-extrabold text-white my-4 mr-4
+    @apply text-4xl font-extrabold my-4 mr-4;
+    @apply text-main;
+}
+
+.controls {
+    @apply flex items-center gap-4;
+}
+
+.themeButton {
+    @apply p-2 rounded-full hover:bg-opacity-20 hover:bg-base-reverse transition-colors;
 }

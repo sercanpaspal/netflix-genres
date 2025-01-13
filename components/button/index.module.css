@@ -1,11 +1,14 @@
 .button {
-    @apply text-white p-1 border-2 border-main rounded transition
+    @apply p-1 border-2 rounded transition;
+    @apply border-main text-base-reverse;
+    @apply dark:text-base-reverse;
 }
 
 .button:hover, .button:active, .active {
-    @apply bg-main text-white
+    @apply bg-main text-white;
 }
 
 .button:disabled {
-    @apply opacity-30 border-transparent bg-base
+    @apply opacity-30 border-transparent;
+    @apply bg-base dark:bg-base-reverse;
 }

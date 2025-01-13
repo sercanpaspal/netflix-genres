@@ -3,9 +3,10 @@
 }
 
 .link {
-    @apply relative transform transition block h-full bg-white text-base text-center rounded p-3 items-center flex justify-center
+    @apply relative transform transition block h-full text-center rounded p-3 items-center flex justify-center;
+    @apply bg-base-reverse text-base dark:bg-base dark:text-base-reverse;
 }
 
 .link:hover {
-    @apply scale-110 shadow-md z-10
+    @apply scale-110 shadow-md z-10;
 }

@@ -4,6 +4,16 @@
   --color-base-reverse: #e5e5e5;
 }
 
+:root[data-theme="light"] {
+  --color-base: #ffffff;
+  --color-base-reverse: #141414;
+}
+
+:root[data-theme="dark"] {
+  --color-base: #141414;
+  --color-base-reverse: #e5e5e5;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -3,11 +3,15 @@
 }
 
 .button {
-    @apply border border-black bg-main px-4 py-2 text-sm font-medium text-white bg-black rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none;
+    @apply border px-4 py-2 text-sm font-medium rounded-md focus:outline-none;
+    @apply bg-base-reverse text-base bg-opacity-20 hover:bg-opacity-30;
+    @apply dark:bg-base dark:text-base-reverse;
 }
 
 .items {
-    @apply z-10 absolute right-0 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none;
+    @apply z-10 absolute right-0 w-56 mt-2 origin-top-right rounded-md shadow-lg ring-1 ring-opacity-5 focus:outline-none;
+    @apply bg-base-reverse dark:bg-base;
+    @apply ring-base dark:ring-base-reverse;
 }
 
 .itemsInner {
